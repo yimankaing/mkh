@@ -9,7 +9,7 @@ Template.mainLayout.helpers({
             var moduleWord = s.words(module, ':');
             return Module[moduleWord[0]].name;
         }
-        return 'Pinrong Project';
+        return 'MKH';
     },
     pageHeader: function () {
         var pageHeader = FlowRouter.getRouteName();

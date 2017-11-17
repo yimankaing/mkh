@@ -1,8 +1,8 @@
 SEO = new FlowRouterSEO();
 
 SEO.setDefaults({
-    title: 'Pinrong Project',
-    description: 'Pinrong IT Solutions, Tel: 053 50 66 777',
+    title: 'MKH',
+    description: 'MKH, Tel: 0123456789',
     meta: {
         'property="og:type"': 'website',
         'property="og:site_name"': 'Default site name',

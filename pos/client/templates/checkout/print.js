@@ -106,6 +106,7 @@ Template.pos_printCheckout.helpers({
         if (!call.ready()) {
             return false;
         }
+      console.log(call.result());
         return call.result();
     }
 

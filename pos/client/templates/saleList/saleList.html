@@ -1,0 +1,165 @@
+<!--Index-->
+<template name="pos_saleList">
+    <p>
+        <a type="button" class="btn btn-primary insert"><i class="fa fa-plus"></i> Add New Sale</a>
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+            Date:
+            <input type="text" class="form-control" id="sale-date-filter">
+        </div>
+        <div class="col-sm-4">
+            Status:
+            <select class="form-control" id="sale-status-filter">
+                <option value="">All</option>
+                <option value="Unsaved">Unsaved</option>
+                <option value="Owed">Owed</option>
+                <option value="Paid">Paid</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            Customer Location:
+            <select class="form-control" id="sale-customer-location-filter">
+                <option value="">All</option>
+                {{#each customerLocations}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+    </div>
+    <br>
+        <!--{{#if isSubReady "pos_sale"}}-->
+    {{> tabular table=Pos.TabularTable.Sales selector=selector class="table table-striped table-bordered table-condensed table-hover"}}
+        <!--{{else}}
+    {{> loading}}
+{{/if}}-->
+</template>
+
+<!--Action-->
+<template name="pos_saleAction">
+    {{#tabularAction}}
+        <li><a class="update"><i class="fa fa-pencil"></i> Update</a></li>
+        <li><a class="remove"><i class="fa fa-remove"></i> Remove</a></li>
+        <li><a class="show"><i class="fa fa-eye"></i> Show</a></li>
+        <li><a href="/pos/checkout/print/{{this._id}}" target="_blank" class="print"><i class="fa fa-print"></i>
+            Print</a></li>
+        <li><a href="/pos/checkout/printSmallInvoice/{{this._id}}" target="_blank" class="print"><i
+                class="fa fa-print"></i>
+            Print Small Invoice</a></li>
+    {{/tabularAction}}
+</template>
+
+<template name="pos_saleShow">
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{_id}}</dd>
+        <dt>SaleDate</dt>
+        <dd>{{sDate}}</dd>
+        <dt>Customer</dt>
+        <dd>{{_customer.name}}</dd>
+        <dt>Staff</dt>
+        <dd>{{_staff.name}}</dd>
+        <dt>Total Cost</dt>
+        <dd>{{totalCost}}</dd>
+        <dt>Total</dt>
+        <dd>{{total}}</dd>
+        <dt>Owed Amount</dt>
+        <dd>{{owedAmount}}</dd>
+        <dt>Status</dt>
+        <dd>{{status}}</dd>
+        <dt>Invoice Type</dt>
+        <dd>{{retail}}</dd>
+        <dt>Transaction Type</dt>
+        <dd>{{transactionType}}</dd>
+        <dt>Location</dt>
+        <dd>{{_location.name}}</dd>
+        <dt>Profit</dt>
+        <dd>{{profit}}</dd>
+    </dl>
+    <span style="text-align: center;font-weight: bold;">Sale Items Detail</span>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Unit</th>
+            <th>Cost</th>
+            <th>Total Cost</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Dis(%)</th>
+            <th>Amount</th>
+            <th>Profit</th>
+            <th>IMEI</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each saleDetails}}
+            <tr>
+                <td>{{_product.name}}</td>
+                <td>{{_product._unit.name}}</td>
+                <td>{{#each transaction}}
+                    P:{{price}} Q:{{quantity}}<br>
+                {{/each}}</td>
+                <td>{{totalCost}}</td>
+                <td>{{price}}</td>
+                <td>{{quantity}}</td>
+                <td>{{discount}}</td>
+                <td>{{amount}}</td>
+                <td>{{profit}}</td>
+                <td class="auto-fix">{{#each imei}}{{this}}<br>{{/each}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+    <span style="text-align: center;font-weight: bold;">Payments</span>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Due Amount</th>
+            <th>Paid Amount</th>
+            <th>Balance Amount</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each payments}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{formatDate paymentDate}}</td>
+                <td>{{dueAmount}}</td>
+                <td>{{payAmount}}</td>
+                <td>{{balanceAmount}}</td>
+                <td>{{status}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+
+<!--Update-->
+<template name="pos_saleUpdate">
+    {{#autoForm collection=Pos.Collection.Sales id="pos_saleUpdate" doc=this type="update"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name='voucher'}}
+                {{> afQuickField name='staffId' options=staffs type="select2"}}
+                {{> afQuickField name='transactionType' options=transactionTypes type="select2"}}
+            </div>
+            <div class="col-md-6">
+                <!--{{> afQuickField name='saleDate'}}-->
+                {{> afQuickField name='customerId' options=customers type="select2"}}
+                {{> afQuickField name='description'}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="save-category">Save</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    {{/autoForm}}
+
+</template>
+

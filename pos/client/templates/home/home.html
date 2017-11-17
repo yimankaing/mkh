@@ -1,7 +1,144 @@
 <template name="pos_home">
-    <h3>Pos home page</h3>
+    <h3>MKH</h3>
     {{#each currencies}}
         {{name}} {{symbol}}<br>
     {{/each}}
-    <!--{{> barcode text="TVT00001" optionalText="a product as example " font="10 Arial" width=360 height=55 }}-->
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Sale</h3>
+
+                    <p>New sale</p>
+                </div>
+                <div class="icon js-sale" style="cursor: pointer;">
+                    <i class="fa fa-shopping-basket"></i>
+                </div>
+                <a href="{{pathFor 'pos.saleList'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Purchase</h3>
+
+                    <p>New purchase</p>
+                </div>
+                <div class="icon js-purchase" style="cursor: pointer;">
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+
+                <a href="{{pathFor 'pos.purchaseList'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Product</h3>
+
+                    <p>New product</p>
+                </div>
+                <div class="icon js-product" style="cursor: pointer;">
+                    <i class="fa fa-archive"></i>
+                </div>
+                <a href="{{pathFor 'pos.product'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Exchange</h3>
+
+                    <p>Exchange rate</p>
+                </div>
+                <div class="icon js-exchange" style="cursor: pointer;">
+                    <i class="fa fa-exchange"></i>
+                </div>
+                <a href="{{pathFor 'pos.exchangeRate'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Sale Payment</h3>
+
+                    <p>New sale payment</p>
+                </div>
+                <div class="icon js-salePayment" style="cursor: pointer;">
+                    <i class="fa fa-usd"></i>
+                </div>
+                <a href="{{pathFor 'pos.salePayment'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-teal">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Purchase Payment</h3>
+
+                    <p>New purchase payment</p>
+                </div>
+                <div class="icon js-purchasePayment" style="cursor: pointer;">
+                    <i class="fa fa-usd"></i>
+                </div>
+
+                <a href="{{pathFor 'pos.purchasePayment'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Customer</h3>
+
+                    <p>New customer</p>
+                </div>
+                <div class="icon js-customer" style="cursor: pointer;">
+                    <i class="fa fa-user"></i>
+                </div>
+                <a href="{{pathFor 'pos.customer'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-navy">
+                <div class="inner">
+                    <h3 style="font-size: 30px; color:white !important;">Supplier</h3>
+
+                    <p>New supplier</p>
+                </div>
+                <div class="icon js-supplier" style="cursor: pointer;">
+                    <i class="fa fa-support"></i>
+                </div>
+                <a href="{{pathFor 'pos.supplier'}}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+
 </template>

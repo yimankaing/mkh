@@ -1,15 +1,18 @@
 Template.pos_navbar.helpers({
     'noSeller': function () {
         var t = true;
-        var user = Meteor.users.findOne(Meteor.user()._id);
-        var roles = user.roles["Pos"];
-        roles.forEach(function (obj) {
+        if(Meteor.user()) {
+          var user = Meteor.users.findOne(Meteor.user()._id);
+          var roles = user.roles["Pos"];
+          roles.forEach(function (obj) {
             if (obj == "seller") {
-                t = false;
-                return false;
+              t = false;
+              return false;
             }
-        });
-        return t;
+          });
+          return t;
+        }
+
     },
     isZero:function(val){
         debugger;

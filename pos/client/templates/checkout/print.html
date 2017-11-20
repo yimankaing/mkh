@@ -170,28 +170,30 @@
                     </tr>
 
                 </table>
-                <table class="table table-striped auto">
+                <table class="table table-striped auto table-condensed table-hover table-bordered">
                     <thead>
-                    <tr>
+                    <tr style="background-color: #282828 !important; color: #ffffff !important;">
                         <th>N<sup style="text-decoration: underline;">o</sup></th>
-                        <th>Product</th>
                         <th>Barcode</th>
-                        <th>Price</th>
+                        <!--<th>Description</th>-->
+                        <th>Description</th>
+                        <th>Packing</th>
                         <th>Qty</th>
-                        <th>Unit</th>
+                        <th>Price</th>
                         <th>Discount</th>
                         <th style="text-align: right;"> Amount</th>
                     </tr>
                     </thead>
-                    <tbody class="custom">
+                    <tbody>
                     {{#each saleDetails}}
                         <tr>
                             <td> {{order}}</td>
-                            <td> {{_product.name}}</td>
                             <td> {{_product.barcode}}</td>
-                            <td> {{price}}</td>
-                            <td> {{quantity}}</td>
+                            <!--<td> {{description}}</td>-->
+                            <td> {{_product.name}}</td>
                             <td> {{_product._unit.name}}</td>
+                            <td> {{quantity}}</td>
+                            <td> {{price}}</td>
                             <td> {{discount}}</td>
                             <td style="text-align: right;"> {{amountFormated}} {{baseCurrency.symbol}}</td>
                         </tr>

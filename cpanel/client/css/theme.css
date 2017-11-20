@@ -8,6 +8,7 @@ html {
 .main-body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    min-height: -webkit-fill-available;
 }
 
 .footer {

@@ -137,24 +137,24 @@
     {{#if data}}
         {{#with data}}
             <div align="center"></div>
-            <div style="font-family: 'Microsoft Sans Serif', Arial, Helvetica, Verdana; font-size: 11px; width:720px; margin: 0 auto;">
+            <div style="font-family: 'Microsoft Sans Serif', Arial, Helvetica, Verdana;
+            font-size: 11px; width:720px; margin: 0 auto;">
 
                 <img src="/mkh_full.png" style="height: 120px; position: absolute;">
                 <div align="center" style="padding-top: 10px;">
-                    <span style="font-weight: bold;font-size: 18px;">INVOICE</span>
+                    <span style="font-weight: bold;font-size: 25px;">INVOICE</span>
 
                 </div>
 
                 <table width="100%" style="margin-top:47px;">
                     <tr>
                         <td>
-                            <span style="font-family:'Khmer OS Muol light','Khmer OS Muol';font-size: 14px;font-weight: bold;">{{company.khName}}</span><br>
+                            <!--<span style="font-family:'Khmer OS Muol light','Khmer OS Muol';font-size: 14px;font-weight: bold;">{{company.khName}}</span><br>-->
                             Address: {{company.enAddress}}<br>
                             Tel: {{company.telephone}}<br>
                         </td>
                         <td align="right">
-                            <b>Customer Info</b><br>
-                            <b>Name:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customer.name}}</span><br>
+                            <b>Customer:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customer.name}}</span><br>
                             <b>Phone:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customer.phone}}</span><br>
                             <b>Location:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customerLocation.name}}</span><br>
 
@@ -172,30 +172,30 @@
                 </table>
                 <table class="table table-striped auto table-condensed table-hover table-bordered">
                     <thead>
-                    <tr style="background-color: #282828 !important; color: #ffffff !important;">
-                        <th>N<sup style="text-decoration: underline;">o</sup></th>
-                        <th>Barcode</th>
+                    <tr>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">N<sup style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;text-decoration: underline;">o</sup></th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Barcode</th>
                         <!--<th>Description</th>-->
-                        <th>Description</th>
-                        <th>Packing</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>Discount</th>
-                        <th style="text-align: right;"> Amount</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Description</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Packing</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Qty</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Price</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Discount</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;text-align: right;"> Amount</th>
                     </tr>
                     </thead>
                     <tbody>
                     {{#each saleDetails}}
                         <tr>
-                            <td> {{order}}</td>
-                            <td> {{_product.barcode}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{order}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{_product.barcode}}</td>
                             <!--<td> {{description}}</td>-->
-                            <td> {{_product.name}}</td>
-                            <td> {{_product._unit.name}}</td>
-                            <td> {{quantity}}</td>
-                            <td> {{price}}</td>
-                            <td> {{discount}}</td>
-                            <td style="text-align: right;"> {{amountFormated}} {{baseCurrency.symbol}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{_product.name}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{_product._unit.name}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{quantity}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{price}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{discount}}</td>
+                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;text-align: right;"> {{amountFormated}} {{baseCurrency.symbol}}</td>
                         </tr>
                     {{/each}}
 

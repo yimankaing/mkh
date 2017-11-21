@@ -76,39 +76,48 @@
  */
 
 Template.pos_printCheckout.onRendered(
-    /*function () {
-     setTimeout(function () {
-     window.print();
-     window.close();
-     }, 900);
-     }*/
+  /*function () {
+   setTimeout(function () {
+   window.print();
+   window.close();
+   }, 900);
+   }*/
 );
 Template.pos_printCheckout.helpers({
-    getFieldOfCurrency: function (id, field) {
-        var currency = Cpanel.Collection.Currency.findOne(id);
-        return currency[field];
-    },
-    multiply: function (val1, val2, id) {
-        var value = (val1 * val2);
-        if (id != null && id == "KHR") {
-            value = roundRielCurrency(value);
-            return numeral(value).format('0,0');
-        }
-        return numeral(value).format('0,0.00');
-    },
-    formatFixTwo: function (val) {
-        return numeral(val).format('0,0.00');
-    },
-    data: function () {
-        var saleId=FlowRouter.getParam('saleId');
-        var callId = 'saleInvoice'+saleId;
-        var call = Meteor.callAsync(callId, 'getSaleInvoiceData', saleId);
-        if (!call.ready()) {
-            return false;
-        }
-      console.log(call.result());
-        return call.result();
+  getFieldOfCurrency: function (id, field) {
+    var currency = Cpanel.Collection.Currency.findOne(id);
+    return currency[field];
+  },
+  multiply: function (val1, val2, id) {
+    var value = (val1 * val2);
+    if (id != null && id == "KHR") {
+      value = roundRielCurrency(value);
+      return numeral(value).format('0,0');
     }
+    return numeral(value).format('0,0.00');
+  },
+  formatFixTwo: function (val) {
+    return numeral(val).format('0,0.00');
+  },
+  data: function () {
+    var saleId = FlowRouter.getParam('saleId');
+    var callId = 'saleInvoice' + saleId;
+    var call = Meteor.callAsync(callId, 'getSaleInvoiceData', saleId);
+    if (!call.ready()) {
+      return false;
+    }
+    console.log(call.result());
+    return call.result();
+  },
+  rowColor: function (index) {
+    if(index){
+      if(index %2 === 0){
+        return '';
+      }else{
+        return '#B6B6B6 !important';
+      }
+    }
+  }
 
 });
 

@@ -153,19 +153,22 @@
                             Address: {{company.enAddress}}<br>
                             Tel: {{company.telephone}}<br>
                         </td>
-                        <td align="right">
-                            <b>Customer:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customer.name}}</span><br>
-                            <b>Phone:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customer.phone}}</span><br>
-                            <b>Location:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._customerLocation.name}}</span><br>
-
-                        </td>
                     </tr>
                     <tr>
                         <td>
-                            <b>Voucher:</b> {{sale.voucher}}<br>
+                            <!--<b>Voucher:</b> {{sale.voucher}}<br>-->
                             <b>#:</b> {{sale._id}}<br>
                             <b>Date:</b> {{sale.saleDate}}<br>
-                            <b>Staff:</b> <span style="font-size: 14px;font-weight: bold;">{{sale._staff.name}}</span>
+                            <b>Salesman:</b> <span
+                                style="font-size: 14px;font-weight: bold;">{{sale._staff.name}}</span>
+                        </td>
+                        <td align="right">
+                            <b>Customer:</b> <span
+                                style="font-size: 14px;font-weight: bold;">{{sale._customer.name}}</span><br>
+                            <b>Phone:</b> <span
+                                style="font-size: 14px;font-weight: bold;">{{sale._customer.phone}}</span><br>
+                            <b>Location:</b> <span
+                                style="font-size: 14px;font-weight: bold;">{{sale._customerLocation.name}}</span><br>
                         </td>
                     </tr>
 
@@ -173,29 +176,54 @@
                 <table class="table table-striped auto table-condensed table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">N<sup style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;text-decoration: underline;">o</sup></th>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Barcode</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            N<sup
+                                style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;text-decoration: underline;">o</sup>
+                        </th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            Barcode
+                        </th>
                         <!--<th>Description</th>-->
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Description</th>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Packing</th>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Qty</th>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Price</th>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">Discount</th>
-                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;text-align: right;"> Amount</th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            Description
+                        </th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            Packing
+                        </th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            Qty
+                        </th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            Price
+                        </th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;">
+                            Discount
+                        </th>
+                        <th style="background-color: #282828 !important; color: #ffffff !important; -webkit-print-color-adjust: exact;text-align: right;">
+                            Amount
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
                     {{#each saleDetails}}
                         <tr>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{order}}</td>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{_product.barcode}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{order}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{_product.barcode}}</td>
                             <!--<td> {{description}}</td>-->
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{_product.name}}</td>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{_product._unit.name}}</td>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{quantity}}</td>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{price}}</td>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;"> {{discount}}</td>
-                            <td style="background-color: {{rowColor @index}};-webkit-print-color-adjust: exact;text-align: right;"> {{amountFormated}} {{baseCurrency.symbol}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{_product.name}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{_product._unit.name}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{quantity}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{price}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;"> {{discount}}</td>
+                            <td style="background-color: {{rowColor
+                                    @index}};-webkit-print-color-adjust: exact;text-align: right;"> {{amountFormated}} {{baseCurrency.symbol}}</td>
                         </tr>
                     {{/each}}
 
@@ -258,6 +286,21 @@
                         {{/if}}
                 {{/each}}
                 </div>-->
+                <table width="100%" border="0" style="text-align: center">
+                    <tr>
+                        <td width="50%">
+                            Buyer / អ្នកទិញ<br><br><br><br><br><br><br>
+                            __________________<br>
+                        </td>
+                        <td width="0%">
+
+                        </td>
+                        <td>Seller / អ្នកលក់<br><br><br><br><br><br><br>
+                            __________________<br>
+                        </td>
+                    </tr>
+
+                </table>
             </div>
         {{/with}}
         {{autoprint close="true"}}

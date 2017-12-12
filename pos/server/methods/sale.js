@@ -5,8 +5,9 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
         var todayDate = moment().format('YYYYMMDD');
-        var prefix = sale.branchId + "-" + todayDate;
-        var saleId = idGenerator.genWithPrefix(Pos.Collection.Sales, prefix, 4);
+        // var prefix = sale.branchId + "-" + todayDate;
+        var prefix = sale.branchId;
+        var saleId = idGenerator.genWithPrefix(Pos.Collection.Sales, prefix, 6);
         sale._id = saleId;
         Pos.Collection.Sales.insert(sale);
         saleDetail.saleId = saleId;
